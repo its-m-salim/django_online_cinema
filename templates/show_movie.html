@@ -1,0 +1,47 @@
+{% extends 'base.html' %}
+{% load static %}
+{% block title %}{{ movie.title }}{% endblock %}
+{% block css %}<link rel="stylesheet" href="{% static 'movies.css' %}">{% endblock %}
+
+{% block content %}
+
+<div class="detail">
+
+    <img class="detail-poster" src="{{ movie.poster.url }}" alt="{{ movie.title }}">
+    <div class="detail-info">
+        <h1>{{ movie.title }}</h1>
+        <div class="movie-meta">{{ movie.year }}, {{ movie.genre.name|default:"без жанра" }}</div>
+        <div class="detail-text">{{ movie.description|linebreaksbr }}</div>
+        <div class="movie-actions">
+            <a class="btn btn-line" href="{% url 'movie_update' movie.id %}">Изменить</a>
+            <a class="btn btn-danger" href="{% url 'movie_delete' movie.id %}">Удалить</a>
+            <a class="btn btn-line" href="{% url 'movie_list' %}">К списку</a>
+        </div>
+    </div>
+</div>
+
+
+<div class="page-top comments-top">
+    <h2>Комментарии ({{ comments|length }})</h2>
+    <a class="btn btn-red" href="{% url 'comment_create' movie.id %}">Поставить комментарий</a>
+</div>
+
+
+{% for comment in comments %}
+    <div class="comment">
+        <div class="comment-head">
+            <span class="comment-author">{{ comment.author_name }}</span>
+            <span class="comment-date">{{ comment.created_at|date:"d.m.Y H:i" }}</span>
+        </div>
+        
+        <div class="comment-text">{{ comment.text|linebreaksbr }}</div>
+        <div class="comment-actions">
+            <a class="btn btn-line" href="{% url 'comment_update' comment.id %}">Изменить</a>
+            <a class="btn btn-danger" href="{% url 'comment_delete' comment.id %}">Удалить</a>
+        </div>
+    </div>
+{% empty %}
+
+<div class="empty">Комментариев пока нет.</div>
+{% endfor %}
+{% endblock %}

@@ -1,0 +1,22 @@
+{% extends 'base.html' %}
+{% block title %}Новый жанр{% endblock %}
+{% block content %}
+<div class="form-box">
+    <h1>Новый жанр</h1>
+    <form method="post">
+    
+        {% csrf_token %}
+        <label>Название жанра</label>
+        <input type="text" name="name" required>
+
+        {% if error %}
+            <div class="error">Такой жанр уже есть</div>
+        {% endif %}
+
+        <div class="form-actions">
+            <button class="btn btn-red" type="submit">Сохранить</button>
+            <a class="btn btn-line" href="{% url 'genre_list' %}">Отмена</a>
+        </div>
+    </form>
+</div>
+{% endblock %}

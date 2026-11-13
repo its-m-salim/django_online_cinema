@@ -1,0 +1,25 @@
+{% extends 'base.html' %}
+{% load static %}
+{% block title %}Жанры{% endblock %}
+{% block css %}<link rel="stylesheet" href="{% static 'genres.css' %}">{% endblock %}
+{% block content %}
+
+<div class="page-top">
+    <h1>Жанры</h1>
+    <a class="btn btn-red" href="{% url 'genre_create' %}">Добавить жанр</a>
+</div>
+
+<div class="genres">
+    {% for genre in genres %}
+        <div class="genre-row">
+            <div class="genre-name">{{ genre.name }}</div>
+            <div class="genre-actions">
+                <a class="btn btn-line" href="{% url 'genre_update' genre.id %}">Изменить</a>
+                <a class="btn btn-danger" href="{% url 'genre_delete' genre.id %}">Удалить</a>
+            </div>
+        </div>
+    {% empty %}
+        <div class="empty">Жанров пока нет. Добавь первый.</div>
+    {% endfor %}
+</div>
+{% endblock %}

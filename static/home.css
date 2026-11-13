@@ -1,0 +1,39 @@
+.welcome {
+    margin-bottom: 40px;
+    padding-top: 30px;
+}
+
+.welcome-text {
+    margin-top: 10px;
+    font-size: 18px;
+    color: #5f6878;
+}
+
+.home-cards {
+    display: flex;
+    gap: 24px;
+}
+
+.home-card {
+    width: 312px;
+    height: 200px;
+    padding: 28px;
+    background: #ffffff;
+    border: 1px solid #cdd2da;
+    border-top: 4px solid #a3182f;
+    border-radius: 6px;
+}
+
+.home-card:hover {
+    background: #f6f7f9;
+}
+
+.home-card-title {
+    margin-bottom: 12px;
+    font-size: 24px;
+    font-weight: bold;
+}
+
+.home-card-text {
+    color: #5f6878;
+}

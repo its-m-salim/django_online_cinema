@@ -1,0 +1,37 @@
+{% extends 'base.html' %}
+{% block title %}Изменить фильм{% endblock %}
+{% block content %}
+<div class="form-box">
+    <h1>Изменить фильм</h1>
+    <form method="post" enctype="multipart/form-data">
+        {% csrf_token %}
+        <label>Название</label>
+        <input type="text" name="title" value="{{ movie.title }}" required>
+
+        <label>Год</label>
+        <input type="number" name="year" value="{{ movie.year }}" required>
+
+        <label>Жанр</label>
+        <select name="genre" required>
+            {% for g in genres %}
+                {% if movie.genre.id == g.id %}
+                    <option value="{{ g.id }}" selected>{{ g.name }}</option>
+                {% else %}
+                    <option value="{{ g.id }}">{{ g.name }}</option>
+                {% endif %}
+            {% endfor %}
+        </select>
+
+        <label>Новый постер (если не выбрать, останется старый)</label>
+        <input type="file" name="poster" accept="image/*">
+
+        <label>Описание</label>
+        <textarea name="description" rows="6" required>{{ movie.description }}</textarea>
+
+        <div class="form-actions">
+            <button class="btn btn-red" type="submit">Сохранить</button>
+            <a class="btn btn-line" href="{% url 'movie_detail' movie.id %}">Отмена</a>
+        </div>
+    </form>
+</div>
+{% endblock %}

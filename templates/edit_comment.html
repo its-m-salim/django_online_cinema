@@ -1,0 +1,21 @@
+{% extends 'base.html' %}
+{% block title %}Изменить комментарий{% endblock %}
+{% block content %}
+<div class="form-box">
+    <h1>Изменить комментарий</h1>
+    <div class="form-sub">К фильму: {{ comment.movie.title }}</div>
+    <form method="post">
+        {% csrf_token %}
+        <label>Ваше имя</label>
+        <input type="text" name="author_name" value="{{ comment.author_name }}" required>
+
+        <label>Комментарий</label>
+        <textarea name="text" rows="6" required>{{ comment.text }}</textarea>
+
+        <div class="form-actions">
+            <button class="btn btn-red" type="submit">Сохранить</button>
+            <a class="btn btn-line" href="{% url 'comment_list' %}">Отмена</a>
+        </div>
+    </form>
+</div>
+{% endblock %}

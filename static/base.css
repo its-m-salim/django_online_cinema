@@ -1,0 +1,176 @@
+* {
+    box-sizing: border-box;
+}
+
+body {
+    margin: 0;
+    background: #e9ebee;
+    color: #1d2330;
+    font-family: Verdana, Arial, sans-serif;
+    font-size: 16px;
+    line-height: 1.5;
+}
+
+a {
+    color: inherit;
+    text-decoration: none;
+}
+
+h1 {
+    margin: 0;
+    font-size: 30px;
+}
+
+h2 {
+    margin: 0;
+    font-size: 22px;
+}
+
+.header {
+    height: 64px;
+    padding: 0 40px;
+    background: #1d2330;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+}
+
+.logo {
+    color: #ffffff;
+    font-size: 22px;
+    font-weight: bold;
+}
+
+.menu a {
+    margin-left: 28px;
+    color: #cfd4de;
+}
+
+.menu a:hover {
+    color: #ffffff;
+}
+
+.content {
+    width: 1000px;
+    margin: 0 auto;
+    padding: 32px 0 60px 0;
+}
+
+.page-top {
+    margin-bottom: 24px;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+}
+
+.btn {
+    display: inline-block;
+    padding: 8px 18px;
+    border: 1px solid transparent;
+    border-radius: 4px;
+    font-family: inherit;
+    font-size: 14px;
+    cursor: pointer;
+}
+
+.btn-red {
+    background: #a3182f;
+    color: #ffffff;
+}
+
+.btn-red:hover {
+    background: #85101f;
+}
+
+.btn-line {
+    background: transparent;
+    border-color: #9aa2b1;
+    color: #1d2330;
+}
+
+.btn-line:hover {
+    background: #dde0e6;
+}
+
+.btn-danger {
+    background: transparent;
+    border-color: #a3182f;
+    color: #a3182f;
+}
+
+.btn-danger:hover {
+    background: #f3d9de;
+}
+
+.btn-danger-fill {
+    background: #a3182f;
+    color: #ffffff;
+}
+
+.empty {
+    padding: 40px 0;
+    color: #5f6878;
+}
+
+.note {
+    margin-bottom: 20px;
+    color: #5f6878;
+}
+
+.form-box {
+    width: 520px;
+    margin: 0 auto;
+    padding: 28px;
+    background: #ffffff;
+    border: 1px solid #cdd2da;
+    border-radius: 6px;
+}
+
+.form-box label {
+    display: block;
+    margin: 18px 0 6px 0;
+    font-size: 14px;
+    color: #5f6878;
+}
+
+.form-box input,
+.form-box textarea,
+.form-box select {
+    width: 100%;
+    padding: 10px;
+    border: 1px solid #cdd2da;
+    border-radius: 4px;
+    font-family: inherit;
+    font-size: 16px;
+    background: #ffffff;
+    color: #1d2330;
+}
+
+.form-box input:focus,
+.form-box textarea:focus,
+.form-box select:focus {
+    outline: none;
+    border-color: #a3182f;
+}
+
+.form-sub {
+    margin-top: 8px;
+    color: #5f6878;
+}
+
+.form-actions {
+    margin-top: 24px;
+    display: flex;
+    gap: 10px;
+}
+
+.error {
+    margin-top: 8px;
+    color: #a3182f;
+    font-size: 14px;
+}
+
+.confirm-name {
+    margin-top: 16px;
+    font-size: 18px;
+}

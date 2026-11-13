@@ -1,0 +1,23 @@
+.genres {
+    width: 640px;
+}
+
+.genre-row {
+    margin-bottom: 12px;
+    padding: 14px 20px;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    background: #ffffff;
+    border: 1px solid #cdd2da;
+    border-radius: 6px;
+}
+
+.genre-name {
+    font-size: 18px;
+}
+
+.genre-actions {
+    display: flex;
+    gap: 10px;
+}

@@ -1,0 +1,39 @@
+{% extends 'base.html' %}
+{% load static %}
+{% block title %}Фильмы{% endblock %}
+{% block css %}<link rel="stylesheet" href="{% static 'movies.css' %}">{% endblock %}
+
+{% block content %}
+<div class="page-top">
+    <h1>Фильмы</h1>
+    <a class="btn btn-red" href="{% url 'movie_create' %}">Добавить фильм</a>
+</div>
+
+
+<form class="search" method="get" >
+    <input type="text" name="q" value="{{ q }}" placeholder="Название или жанр">
+    <button class="btn btn-red" type="submit">Найти</button>
+</form>
+
+<div class="movies">
+
+    {% for movie in movies %}
+    <div class="movie-card">
+        <img class="poster" src="{{ movie.poster.url }}" alt="{{ movie.title }}">
+        <div class="movie-info">
+            <div>
+                <a class="movie-title" href="{% url 'movie_detail' movie.id %}">{{ movie.title }}</a>
+                <div class="movie-meta">{{ movie.year }}, {{ movie.genre.name|default:"без жанра" }}</div>
+            </div>
+            <div class="movie-actions">
+                <a class="btn btn-line" href="{% url 'movie_update' movie.id %}">Изменить</a>
+                <a class="btn btn-danger" href="{% url 'movie_delete' movie.id %}">Удалить</a>
+            </div>
+        </div>
+    </div>
+    
+    {% empty %}
+    <div class="empty">Фильмов не найдено.</div>
+    {% endfor %}
+</div>
+{% endblock %}

@@ -1,0 +1,29 @@
+{% extends 'base.html' %}
+{% load static %}
+{% block title %}Главная{% endblock %}
+{% block css %}<link rel="stylesheet" href="{% static 'home.css' %}">{% endblock %}
+{% block content %}
+
+<div class="welcome">
+    <h1>Добро пожаловать в онлайн Кинотеатр</h1>
+    <div class="welcome-text">Выбери раздел, чтобы начать.</div>
+</div>
+
+<div class="home-cards">
+
+    <a class="home-card" href="{% url 'movie_list' %}">
+        <div class="home-card-title">Фильмы</div>
+        <div class="home-card-text">Каталог фильмов с поиском по названию и жанру</div>
+    </a>
+
+    <a class="home-card" href="{% url 'genre_list' %}">
+        <div class="home-card-title">Жанры</div>
+        <div class="home-card-text">Добавить, изменить или удалить жанр</div>
+    </a>
+
+    <a class="home-card" href="{% url 'comment_list' %}">
+        <div class="home-card-title">Мои комментарии</div>
+        <div class="home-card-text">Все комментарии к фильмам в одном месте</div>
+    </a>
+</div>
+{% endblock %}

@@ -1,0 +1,17 @@
+{% extends 'base.html' %}
+{% block title %}Удалить комментарий{% endblock %}
+{% block content %}
+<div class="form-box">
+    <h1>Удалить комментарий?</h1>
+    
+    <div class="confirm-name">{{ comment.author_name }}</div>
+    <div class="form-sub">{{ comment.text }}</div>
+    <form method="post">
+        {% csrf_token %}
+        <div class="form-actions">
+            <button class="btn btn-danger-fill" type="submit">Да, удалить</button>
+            <a class="btn btn-line" href="{% url 'comment_list' %}">Отмена</a>
+        </div>
+    </form>
+</div>
+{% endblock %}

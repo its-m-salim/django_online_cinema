@@ -1,0 +1,28 @@
+{% extends 'base.html' %}
+{% load static %}
+{% block title %}Мои комментарии{% endblock %}
+{% block css %}<link rel="stylesheet" href="{% static 'comments.css' %}">{% endblock %}
+{% block content %}
+
+<div class="page-top">
+    <h1>Мои комментарии</h1>
+</div>
+
+{% for comment in comments %}
+
+    <div class="comment">
+        <div class="comment-head">
+            <span class="comment-author">{{ comment.author_name }}</span>
+            <span class="comment-date">{{ comment.created_at|date:"d.m.Y H:i" }}</span>
+        </div>
+        <div class="comment-movie">К фильму: <a href="{% url 'movie_detail' comment.movie.id %}">{{ comment.movie.title }}</a></div>
+        <div class="comment-text">{{ comment.text|linebreaksbr }}</div>
+        <div class="comment-actions">
+            <a class="btn btn-line" href="{% url 'comment_update' comment.id %}">Изменить</a>
+            <a class="btn btn-danger" href="{% url 'comment_delete' comment.id %}">Удалить</a>
+        </div>
+    </div>
+{% empty %}
+    <div class="empty">Комментариев пока нет. Открой любой фильм и нажми «Поставить комментарий».</div>
+{% endfor %}
+{% endblock %}

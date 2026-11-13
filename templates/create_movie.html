@@ -1,0 +1,35 @@
+{% extends 'base.html' %}
+{% block title %}Новый фильм{% endblock %}
+{% block content %}
+<div class="form-box">
+    <h1>Новый фильм</h1>
+    <form method="post" enctype="multipart/form-data">
+        {% csrf_token %}
+        <label>Название</label>
+        <input type="text" name="title" required>
+
+        <label>Год</label>
+        <input type="number" name="year" required>
+
+        <label>Жанр</label>
+        <select name="genre" required>
+            {% for g in genres %}
+            <option value="{{ g.id }}">{{ g.name }}</option>
+            {% empty %}
+            <option value="">Сначала добавь жанр</option>
+            {% endfor %}
+        </select>
+
+        <label>Постер</label>
+        <input type="file" name="poster" accept="image/*" required>
+
+        <label>Описание</label>
+        <textarea name="description" rows="6" required></textarea>
+
+        <div class="form-actions">
+            <button class="btn btn-red" type="submit">Сохранить</button>
+            <a class="btn btn-line" href="{% url 'movie_list' %}">Отмена</a>
+        </div>
+    </form>
+</div>
+{% endblock %}

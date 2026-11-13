@@ -1,0 +1,18 @@
+{% extends 'base.html' %}
+{% block title %}Удалить жанр{% endblock %}
+{% block content %}
+
+<div class="form-box">
+    <h1>Удалить жанр?</h1>
+    <div class="confirm-name">{{ genre.name }}</div>
+    <div class="form-sub">Фильмы этого жанра останутся, но будут без жанра.</div>
+    <form method="post">
+        {% csrf_token %}
+        <div class="form-actions">
+        
+            <button class="btn btn-danger-fill" type="submit">Да, удалить</button>
+            <a class="btn btn-line" href="{% url 'genre_list' %}">Отмена</a>
+        </div>
+    </form>
+</div>
+{% endblock %}

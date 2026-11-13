@@ -1,0 +1,39 @@
+.comment {
+    width: 760px;
+    margin-bottom: 16px;
+    padding: 18px 20px;
+    background: #ffffff;
+    border: 1px solid #cdd2da;
+    border-radius: 6px;
+}
+
+.comment-head {
+    display: flex;
+    justify-content: space-between;
+    margin-bottom: 4px;
+}
+
+.comment-author {
+    font-weight: bold;
+}
+
+.comment-date {
+    font-size: 14px;
+    color: #5f6878;
+}
+
+.comment-movie {
+    margin-bottom: 10px;
+    font-size: 14px;
+    color: #5f6878;
+}
+
+.comment-movie a {
+    color: #a3182f;
+}
+
+.comment-actions {
+    margin-top: 14px;
+    display: flex;
+    gap: 10px;
+}

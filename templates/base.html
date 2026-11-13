@@ -1,0 +1,25 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <meta charset="UTF-8">
+    <title>{% block title %}Онлайн синема{% endblock %}</title>
+
+    <link rel="stylesheet" href="{% static 'base.css' %}">
+    {% block css %}{% endblock %}
+</head>
+<body>
+    <div class="header">
+        <a class="logo" href="{% url 'home' %}">Онлайн Кинотеатр</a>
+
+        <div class="menu">
+            <a href="{% url 'movie_list' %}">Фильмы</a>
+            <a href="{% url 'genre_list' %}">Жанры</a>
+            <a href="{% url 'comment_list' %}">Мои комментарии</a>
+        </div>
+    </div>
+    <div class="content">
+        {% block content %}{% endblock %}
+    </div>
+</body>
+</html>
